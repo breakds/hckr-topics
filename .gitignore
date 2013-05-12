@@ -11,3 +11,13 @@
 *.lai
 *.la
 *.a
+
+# build directory
+build/*
+
+
+# Common Lisp FASL
+*.fasl
+
+# Emacs backup
+*~
