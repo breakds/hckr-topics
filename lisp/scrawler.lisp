@@ -100,28 +100,86 @@ children that matches match-seq"
           (mapcar (lambda (x) (html-chain x (cdr match-seq)))
                   cands))))))
 
+;;; lhtml related
+(defun lhtml-children (node)
+  (cddr node))
+
+(defun lhtml-named-child (node specifier)
+  "return the nth child of the node with a specific name"
+  (labels ((nth-named-sibling (node-lst name n)
+             (cond ((null node-lst) nil)
+                   ((atom (car node-lst)) (nth-named-sibling (rest node-lst)
+                                                             name 
+                                                             n))
+                   ((equal name (caar node-lst))
+                    (if (zerop n)
+                        (car node-lst)
+                        (nth-named-sibling (rest node-lst) 
+                                           name
+                                           (1- n))))
+                   (t (nth-named-sibling (rest node-lst)
+                                         name 
+                                         n)))))
+    (when node
+      (if (atom specifier)
+          (nth-named-sibling (lhtml-children node) specifier 0) 
+          (nth-named-sibling (lhtml-children node) 
+                             (car specifier) (cadr specifier))))))
+
+
+(defun lhtml-chain (node spec-seq)
+  "starting from the given node, follow the path specified by the
+  sequence spec-seq, where each element in spec-seq is a specifier."
+  (if (null spec-seq)
+      node
+      (lhtml-chain (lhtml-named-child node (car spec-seq))
+                   (rest spec-seq))))
+
+
+
 
 ;;; hacker news fetcher
+(defun acquire-id (triplet)
+  (ignore-errors
+    (parse-integer 
+     (subseq (element-attribute 
+              (html-chain (car triplet) 
+                          '(("td" 1) "center" "a"))
+              "id") 3))))
+
+(defun acquire-title (triplet)
+  (ignore-errors
+    (node-value (node-first-child 
+                 (html-chain (car triplet) 
+                             '(("td" 2) "a"))))))
+
+(defun acquire-points (triplet)
+  (ignore-errors
+    (let ((str (node-value 
+                (node-first-child
+                 (html-chain (cadr triplet)
+                             '(("td" 1) "span"))))))
+      (parse-integer (subseq str 0 
+                             (position #\Space str))))))
+
+(defun acquire-url (triplet)
+  (ignore-errors
+    (element-attribute (html-chain (car triplet) 
+                                   '(("td" 2) "a"))
+                       "href")))
+  
+
 (defun acquire-news (triplet)
   "construct a news object from a <tr> triplet"
-  (make-news :id (parse-integer 
-                  (subseq (element-attribute 
-                           (html-chain (car triplet) 
-                                       '(("td" 1) "center" "a"))
-                           "id") 3))
-             :title (node-value (node-first-child 
-                                 (html-chain (car triplet) 
-                                             '(("td" 2) "a"))))
-             :points (let ((str (node-value 
-                                 (node-first-child
-                                  (html-chain (cadr triplet)
-                                              '(("td" 1) "span"))))))
-                       (parse-integer (subseq str 0 
-                                              (position #\Space str))))
-             :url (element-attribute (html-chain (car triplet) 
-                                                 '(("td" 2) "a"))
-                                     "href")))
-             
+  (let ((id (acquire-id triplet))
+        (title (acquire-title triplet))
+        (points (acquire-points triplet))
+        (url (acquire-url triplet)))
+    (when (and id title points url)
+      (make-news :id id
+                 :title title
+                 :points points
+                 :url url))))
 
 (defun fetch-hckr-news-list (uri)
   "returns a list of documents, and a url to the next page"
@@ -132,13 +190,15 @@ children that matches match-seq"
       (when (= (mod (length prelim) 3) 2)
         (multiple-value-bind (item-trs more-trs) (split-at-n prelim -2)
           (let ((grouped-trs (group item-trs 3)))
-            (values (mapcar #'acquire-news grouped-trs)
+            (values (remove-if #'null (mapcar #'acquire-news grouped-trs))
                     (element-attribute (html-chain (cadr more-trs)
                                                    '(("td" 1) "a"))
                                        "href"))))))))
                       
             
 ;;; article normalizer
+(defparameter *word-extractor* (create-scanner "^([a-z]+)[\\.\\?:]?$"))
+
 (defun unbreak (str)
   "remove break entities like &nbsr; and &ldquot etc."
   (regex-replace-all "&.{0,9};" str " "))
@@ -147,10 +207,15 @@ children that matches match-seq"
   "count the number of sentences in this string"
   (ash (length (all-matches "(?<!mr|ms|dr|no)\\.|\\?|\\!" str)) -1))
 
-(defun get-word-list (str)
-  (split "\\s+" (string-downcase str)))
+(defun get-word (str)
+  (ignore-errors
+    (aref (nth-value 1 (scan-to-strings *word-extractor* str)) 0)))
+        
 
-(defun get-score (node)
+(defun get-word-list (str)
+  (remove-if #'null (mapcar #'get-word (split "\\s+" (string-downcase str)))))
+
+
   
     
 

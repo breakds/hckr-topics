@@ -6,13 +6,17 @@
         #:ppcre
         #:html5-parser
         #:alexandria
-        #:drakma)
+        #:drakma
+        #:chtml)
   (:export #:version
            #:html-named-child
            #:html-chain
            #:html-collect
+           #:lhtml-named-child
+           #:lhtml-chain
            #:fetch-hckr-news-list
            ;; debugging
+           #:get-word
            #:unbreak
            #:count-sentences
            #:get-word-list

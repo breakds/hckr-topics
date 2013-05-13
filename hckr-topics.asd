@@ -5,6 +5,7 @@
     :depends-on (#:cl-html5-parser
                  #:drakma
                  #:cl-ppcre
-                 #:alexandria)
+                 #:alexandria
+                 #:closure-html)
     :components ((:file "lisp/packages")
                  (:file "lisp/scrawler")))
