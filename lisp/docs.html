@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<base href="http://ilyabirman.net/meanwhile/" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+<link rel="stylesheet" type="text/css" href="system/theme/styles/main.css" />
+<link rel="stylesheet" type="text/css" href="themes/meanwhile/styles/main.css" />
+
+<link rel="alternate" type="application/rss+xml" title="On Design, Technology and Music" href="http://ilyabirman.net/meanwhile/rss/" />
+
+<link rel="index" id="link-index" href="http://ilyabirman.net/meanwhile/" />
+<link rel="prev" id="link-prev" href="http://ilyabirman.net/meanwhile/all/the-home-button-problem-of-ios/" />
+<link rel="next" id="link-next" href="http://ilyabirman.net/meanwhile/all/accidental-tech-podcast/" />
+
+<script type="text/javascript" src="system/library/jquery/jquery.js"></script>
+<script type="text/javascript" src="system/library/pseudohover/pseudohover.js"></script>
+<script type="text/javascript" src="system/theme/js/main.js"></script>
+<script type="text/javascript" src="users/ilyabirman.net--meanwhile/library/ilyabirman-share/ilyabirman-share.js"></script>
+
+
+<meta name="viewport" content="width=1024" />
+
+<meta name="robots" content="index, follow" />
+
+<meta name="description" content="As you may know, modes are bad. Even worse are timed modes often used in the human interface of consumer electronics" />
+
+<title>Timed modes</title>
+
+</head>
+
+<body>
+
+
+
+<form
+  action="http://ilyabirman.net/meanwhile/@actions/sign-in/"
+  method="post"
+  class="form-login e2-enterable e2-hideable"
+  id="form-login"
+  style="display: none">
+
+<a id="e2-check-password-action" href="http://ilyabirman.net/meanwhile/@ajax/check-password/"></a>
+  
+
+<div class="login-sheet-wrapper" id="e2-login-sheet">
+
+<div class="login-sheet">
+
+<input type="text" name="login" value="Ilya Birman" style="display: none" />
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+<tr height="10">
+	<td width="40" rowspan="6">&nbsp;</td><td></td>
+	<td width="10" rowspan="6">&nbsp;</td><td></td>
+	<td width="80" rowspan="6">&nbsp;</td>
+</tr>
+
+<tr valign="middle">
+	<td><span class="i-lock"></span></td>
+	<td><input type="password" name="password" id="e2-password" class="input-disableable" style="width: 100%" /></td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td>
+	<td>
+		<label><input type="checkbox"
+			class="checkbox input-disableable"
+			name="is_public_pc"
+			id="is_public_pc"
+					/>&nbsp;Public computer</label>
+	</td>
+</tr>
+
+<tr height="10"></tr>
+
+<tr>
+	<td>&nbsp;</td>
+	<td>
+	  <button type="submit" id="login-button" class="button submit-button sign-in-button input-disableable">
+      Sign in    </button>
+    &nbsp;&nbsp;&nbsp;
+    <span id="password-checking" class="i-loading" style="display: none"></span><span id="password-correct" class="i-tick" style="display: none"></span>
+	</td>
+</tr>
+
+</table>
+</div>
+
+<div class="login-sheet-bottom"></div>
+
+</div>
+
+</form>
+<style>
+  @import   '../../../../css/main.css';
+</style>
+
+
+<div id="frame">
+
+
+
+<div class="stripe"></div>
+
+<div class="menu">
+
+  <div class="menu-home">
+    <a class="menu-item" href="http://ilyabirman.net/"><i><u>Ilya Birman</u></i></a>
+  </div>
+    
+  <div class="menu-sections">
+    <a class="menu-item" href="/projects/"><u>Projects</u></a><a class="menu-item" href="/music/"><u>Music</u></a><a class="menu-item" href="/world/"><u>World</u></a><a class="menu-item menu-item-selected" href="http://ilyabirman.net/meanwhile/"><i><u>Blog</u></i></a>
+  </div>
+
+  
+    
+  <div class="menu-end"></div>
+  
+</div>
+
+<div class="blog-page-heading">
+
+
+  
+
+</div>
+
+
+
+
+<div class="main-content">
+
+
+
+
+
+
+
+
+
+<div class="only note e2-note-favourite">
+
+<h1 class="published visible e2-smart-title">Timed modes
+<span class="icons">
+
+<span class="i-favourite"></span> 
+
+
+
+
+
+</span>
+
+</h1>
+
+
+
+
+<p class="date" title="9 May 2013, 04:02, GMT+06:00">May 9, 4:02</p>
+
+
+
+
+
+<div class="text published visible">
+<p>As you may know, <a href="http://en.wikipedia.org/wiki/Mode_(computer_interface)">modes</a> are bad. Even worse are <i>timed modes</i> often used in the human interface of consumer electronics.</p>
+<p>A mode is a state of user interface in which the same user action leads to the same result; in different modes, results of the same actions are different. Photoshop is famous for its exuberant use of modes: a click within an open image may do <i>anything</i> depending on what tool and options you have selected. The problem with modes is that you are not constantly aware of the current mode, which leads to errors: you want to draw a line, but accidentally create a gradient fill.</p>
+<p>Now imagine a TV remote. Left-right buttons change volume and up-down buttons switch channels. These four buttons are also used for menu navigation. Now, when you are in the menu and you want to make the TV louder, you press the right button through habit. Unfortunatelly, now the button means “make screen aspect ratio wider”. The menu is not just a mode, it is a timed mode: if you don’t press anything for 10 seconds, the menu will be closed. If you are trying to set up this TV with a help of a user manual, you will be very frustrated: every time you look up the manual, the menu disappears and you have to start over.</p>
+<p>Timed modes in a car UI are not just frustrating, but can also be dangerous. To change the audio bass level, you have to go to the menu, find the EQ settings, select “bass” and then adjust it with a knob. By the time you get to the necessary menu item, the traffic light turns green, so you have to postpone the adjustments until the next traffic light. Chances are, you will then need to navigate the menu again. If you know that the interface will not wait for you until the next traffic light, you will be forced to adjust bass while driving.</p>
+<p>If you cannot avoid modes in your user interface altogether, at least don’t use timed modes. If I have changed my mind and don’t want to set up the TV or adjust the bass, I will just press cancel myself.</p>
+</div>
+
+
+
+
+<div class="tags">
+<a href="http://ilyabirman.net/meanwhile/tags/interface/">interface</a></div>
+
+
+
+
+</div>
+
+
+<style>
+#ilyabirman-share-element * { border: none }
+</style>
+<div id="ilyabirman-share-element" share:url="http://ilyabirman.net/meanwhile/all/timed-modes/" share:twiacc="ilyabirmannet" style="margin-top: -1.5em"></div>
+
+<br />
+<br />
+<br />
+
+
+  
+
+
+
+<div class="pages">
+
+<div class="pages-prev-next">
+<table cellspacing="0" cellpadding="0" border="0">
+<tr valign="top">
+<td><a href="http://ilyabirman.net/meanwhile/all/the-home-button-problem-of-ios/">The Home button problem of iOS</a></td>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>&larr;</td>
+<td>&nbsp;</td>
+<td><span class="keyboard-shortcut">Ctrl</span></td>
+<td>&nbsp;</td>
+<td>&rarr;</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td><a href="http://ilyabirman.net/meanwhile/all/accidental-tech-podcast/">Accidental Tech Podcast</a></td>
+</tr>
+</table>
+</div>
+
+</div>
+
+
+
+<div class="comments">
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<style>
+.ibs8-popular {
+  width: 620px;
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  columns: 3;
+  -webkit-column-gap: 40px;
+  -moz-column-gap: 40px;
+  column-gap: 40px;
+  margin: 0 0 24px 0; 
+}
+.ibs8-popular p {
+  display: inline-block;
+}
+</style>
+<h3>Popular</h3>
+<div class="ibs8-popular">
+ 
+
+    <p><a href="http://ilyabirman.net/meanwhile/all/the-home-button-problem-of-ios/" title="28 April 2013, 23:37">The Home button problem of iOS</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/sim-cards-must-die/" title="23 March 2012, 14:41">SIM cards must die</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/online-video-and-opening-titles/" title="12 April 2013, 02:17">Online video and opening titles</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/great-design-of-php/" title="13 April 2012, 03:05">The great design of PHP</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/dslr-dock/" title="7 February 2012, 12:57">DSLR cameras should become iPhone docks</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/calendar-icon-manual/" title="23 August 2012, 13:12">Calendar icon manual</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/2012/04/07/1/" title="7 April 2012, 03:06">Got Git</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/splash-screens/" title="23 December 2012, 16:29">Splash screens</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/the-dark-secret-of-yellow/" title="10 June 2012, 16:11">The dark secret of yellow</a></p><br />
+</div>
+
+
+
+
+
+<div style="margin-bottom: 24px">
+
+<div class="form-search">
+
+
+<form
+  id="e2-form-search"
+  class="e2-enterable"
+  action="http://ilyabirman.net/meanwhile/@actions/search/"
+  method="post"
+  accept-charset="utf-8"
+>
+
+<div>
+
+  <label>
+    <span class="i-loupe"></span>
+  	<input type="search" class="text" name="query" id="query"
+  		value=""
+  	/>
+    <button type="submit"><span class="i-enter"></span></button>
+  </label>
+
+</div>
+
+</form>
+
+
+</div>
+
+<!--
+<a href="http://ilyabirman.net/meanwhile/tags/">Tags</a>
+-->
+</p>
+
+
+<div style="clear: left"></div>
+
+</div>
+
+
+
+
+</div>
+
+<div class="clear"></div>
+
+
+<div class="footer">
+
+  <div class="footer-copyright">
+          <p>© 2013</p>
+      </div>
+   
+  <div class="footer-email">
+
+    <p>E-mail: <a href="mailto:ilyabirman@ilyabirman.ru">ilyabirman@ilyabirman.ru</a></p>
+
+    <p>
+      <span title="E2 (release 2.4a, v2753)">Powered by <a href="http://blogengine.ru/">Aegea</a></span>                  <a id="e2-visual-login" href="http://ilyabirman.net/meanwhile/sign-in/" class="nu"><img src="system/theme/images/login.png" class="icon" alt="Login" width="16" height="16" valign="bottom" style="margin-bottom: 2px" /></a>
+          </p>
+
+  </div>
+
+  
+</div>
+
+<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter155348 = new Ya.Metrika({id:155348, clickmap:true, webvisor:true}); } catch(e) {} }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/155348" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+</div>
+
+</body>
+
+</html>
