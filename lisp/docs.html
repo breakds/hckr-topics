@@ -1,350 +1,108 @@
+
+
 <!DOCTYPE html>
-<html>
 
-<head>
-
-
-
-
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-<base href="http://ilyabirman.net/meanwhile/" />
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
-<link rel="stylesheet" type="text/css" href="system/theme/styles/main.css" />
-<link rel="stylesheet" type="text/css" href="themes/meanwhile/styles/main.css" />
-
-<link rel="alternate" type="application/rss+xml" title="On Design, Technology and Music" href="http://ilyabirman.net/meanwhile/rss/" />
-
-<link rel="index" id="link-index" href="http://ilyabirman.net/meanwhile/" />
-<link rel="prev" id="link-prev" href="http://ilyabirman.net/meanwhile/all/the-home-button-problem-of-ios/" />
-<link rel="next" id="link-next" href="http://ilyabirman.net/meanwhile/all/accidental-tech-podcast/" />
-
-<script type="text/javascript" src="system/library/jquery/jquery.js"></script>
-<script type="text/javascript" src="system/library/pseudohover/pseudohover.js"></script>
-<script type="text/javascript" src="system/theme/js/main.js"></script>
-<script type="text/javascript" src="users/ilyabirman.net--meanwhile/library/ilyabirman-share/ilyabirman-share.js"></script>
-
-
-<meta name="viewport" content="width=1024" />
-
-<meta name="robots" content="index, follow" />
-
-<meta name="description" content="As you may know, modes are bad. Even worse are timed modes often used in the human interface of consumer electronics" />
-
-<title>Timed modes</title>
-
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Blog :: Will This Fly?
+</title>
+	<link rel="Stylesheet" type="text/css" href="/assets/style/screen.css"/>
 </head>
-
 <body>
-
-
-
-<form
-  action="http://ilyabirman.net/meanwhile/@actions/sign-in/"
-  method="post"
-  class="form-login e2-enterable e2-hideable"
-  id="form-login"
-  style="display: none">
-
-<a id="e2-check-password-action" href="http://ilyabirman.net/meanwhile/@ajax/check-password/"></a>
-  
-
-<div class="login-sheet-wrapper" id="e2-login-sheet">
-
-<div class="login-sheet">
-
-<input type="text" name="login" value="Ilya Birman" style="display: none" />
-
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
-
-<tr height="10">
-	<td width="40" rowspan="6">&nbsp;</td><td></td>
-	<td width="10" rowspan="6">&nbsp;</td><td></td>
-	<td width="80" rowspan="6">&nbsp;</td>
-</tr>
-
-<tr valign="middle">
-	<td><span class="i-lock"></span></td>
-	<td><input type="password" name="password" id="e2-password" class="input-disableable" style="width: 100%" /></td>
-</tr>
-
-<tr>
-	<td>&nbsp;</td>
-	<td>
-		<label><input type="checkbox"
-			class="checkbox input-disableable"
-			name="is_public_pc"
-			id="is_public_pc"
-					/>&nbsp;Public computer</label>
-	</td>
-</tr>
-
-<tr height="10"></tr>
-
-<tr>
-	<td>&nbsp;</td>
-	<td>
-	  <button type="submit" id="login-button" class="button submit-button sign-in-button input-disableable">
-      Sign in    </button>
-    &nbsp;&nbsp;&nbsp;
-    <span id="password-checking" class="i-loading" style="display: none"></span><span id="password-correct" class="i-tick" style="display: none"></span>
-	</td>
-</tr>
-
-</table>
+	<a id="top"></a>
+	<form method="post" action="" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNzk1MTAyMjM4D2QWAgIDD2QWBgIBD2QWCAIBDxYCHgRUZXh0BT1XZSBmYWlsZWQsIGFuZCBub3QgZm9yIHRoZSBmaXJzdCB0aW1lOyB0aGVuIHNvbWV0aGluZyBzbmFwcGVkZAIDDxYCHwAFCzA2LU1heS0yMDEzZAIFDxYCHwAF4UA8ZGl2IGNsYXNzPSJpbnRyby10ZXh0Ij4NCjxwPk91ciBtb3N0IHJlY2VudCBzdGFydHVwIHZlbnR1cmUgZGlkIG5vdCBqdXN0IGZhaWwsIGl0IGRlc2VydmVkIHRvIGZhaWwuIExpa2UgbWFueSBiZWZvcmUgdXMgd2Ugd2VyZSBjb252aW5jZWQgb2Ygb3VyIGFiaWxpdHkgdG8gc29sdmUgcHJvYmxlbXMgZXZlcnlvbmUgZWxzZSBoYWQgbWlzc2VkLiBXaGF0IHdlIG91cnNlbHZlcyBtaXNzZWQgd2FzIHRoYXQgc29sdmluZyBub24tZXhpc3RlbnQgcHJvYmxlbXMgaXMgYSBjb21tb24gbWlzdGFrZSBmb3IgaW5ub3ZhdG9ycywgdGhlIHNvbHV0aW9uIHRvIHdoaWNoIGlzIHB1YmxpYyBzY3J1dGlueSBieSBvdGhlcnMuIDwvcD4NCjwvZGl2Pg0KPHA+V2UgcmVjZW50bHkgYWJhbmRvbmVkIG91ciBsYXRlc3QgZW50cmVwcmVuZXVyaWFsIGF0dGVtcHQsIGEgbmV3IGtpbmQgb2YgSVQgbW9uaXRvcmluZyB0b29sIGFpbWVkIGF0IHNtYWxsIGNvbXBhbmllcy4gV2UgY2xvc2VkIGl0IGRvd24gd2hlbiB3ZSByZWFsaXplZCBzbWFsbCBjb21wYW5pZXMgZGlkIG5vdCBuZWVkIG9yIHdhbnQgdGhlIGtpbmQgb2Ygc29sdXRpb24gd2Ugd2VyZSBvZmZlcmluZy4gSW4gZG9pbmcgc28gdGhlIHByb2plY3Qgam9pbmVkIGFuIGV4YWx0ZWQgbGlzdCBvZiBmYWlsdXJlcyB3ZSBoYXZlIHJhY2tlZCB1cCBvdmVyIHRoZSBsYXN0IGZpdmUgeWVhcnMuIEFsbCBvZiB0aGVtIGZhaWxlZCB0byBnYWluIGN1c3RvbWVycy4gTW9yZSBpbXBvcnRhbnRseSwgdGhleSBhbGwgZGVzZXJ2ZWQgdG8gZmFpbC4gPC9wPg0KPHA+TGlrZSBtYW55IHdvdWxkLWJlIHN0YXJ0dXBzIHdlIG1hZGUgb25lIGtleSBtaXN0YWtlOyB3ZSBkZXZlbG9wZWQgYW1hemluZyBwcm9kdWN0cyB0aGF0IHNvbHZlZCBwcm9ibGVtcyBubyBvbmUgYWN0dWFsbHkgaGFkLiBNb3JlIHNwZWNpZmljYWxseSwgd2UgZGV2ZWxvcGVkIHRoZW0gaW4gaXNvbGF0aW9uLCBhYnNvbHV0ZWx5IGNvbnZpbmNlZCBvZiB0aGUgcmlnaHRuZXNzIG9mIG91ciBhcHByb2FjaCBhbmQgdGhlIGltcGFjdCB0aGV5IHdvdWxkIGhhdmUgb24gdGhlIHRhcmdldCBhdWRpZW5jZS4gV29ycmllZCBhYm91dCBvdGhlcnMgc3RlYWxpbmcgb3VyIGdyZWF0IGlkZWFzLCB3ZSBoaWQgdGhlbSBmcm9tIHNjcnV0aW55LCB1bmF3YXJlIHRoYXQgbm90IG9ubHkgd2VyZSB0aGV5IHRoZWZ0LXByb29mIGJ1dCBzYWxlLXByb29mLjwvcD4NCjxwPlRoZSByZXN1bHQgd2FzIGEgc2VyaWVzIG9mIG5pY2VseSBkZXNpZ25lZCBhcHBzIHRoYXQgd2VudCBub3doZXJlLiBBbGwgb2YgdGhlbSBzb2x2ZWQgcHJvYmxlbXMsIHR3byBvZiB0aGVtIGRpZCBzbyB2ZXJ5IGVsZWdhbnRseSwgYW5kIG5vdCBvbmUgb2YgdGhlbSBnYWluZWQgZW5vdWdoIG1vbWVudHVtIHRvIGV2ZW4gY292ZXIgb3VyIGNvc3RzIGxldCBhbG9uZSBtYWtlIHByb2ZpdHMuIFRoZXkgd2VyZSBmYWlsdXJlcyBpbiBldmVyeSBzZW5zZS48L3A+DQo8aDI+V2hvIG5lZWRzIHZhbGlkYXRpb24/PC9oMj4NCjxwPkxpa2Ugb3RoZXJzIHdlIGZvdW5kIHRoZXNlIGZhaWx1cmVzIGRlbW9yYWxpemluZy4gRWFjaCB0aW1lIHdlIHBlcnNldmVyZWQgYmVjYXVzZSB3ZSBoYWQgbGVhcm5lZCBzbyBtdWNoLiBTdXJlbHkgd2UgY291bGQgcHV0IHRoaXMgZXhwZXJpZW5jZSB0byBnb29kIHVzZT8gQXMgcGxhdXNpYmxlIGFzIHRoaXMgc291bmRzIG91ciBncmVhdCB3ZWFrbmVzcyB3YXMgb25lIHdlIHNwZW50IHZpcnR1YWxseSBubyB0aW1lIGNvbnNpZGVyaW5nOiB3ZSBkaWQgbm90IHRyeSB0byB2YWxpZGF0ZSBlYWNoIGlkZWEgdW50aWwgaXQgd2FzIGdvb2QgYW5kIHJlYWR5LjwvcD4NCjxwPlRoZSBmaXJzdCB0aW1lIHJvdW5kIHRoaXMgd2FzIG92ZXIgdHdvIHllYXJzIHdvcms7IHR3byB5ZWFycyB0byBmaW5kIG91dCBubyBvbmUgY2FyZWQgYXQgYWxsIGFib3V0IG91ciBhbWF6aW5nIHByb2R1Y3QuIFNlY29uZCB0aW1lIHJvdW5kIHdlIHdlcmUgd2lzZXIsIHdlIGZhaWxlZCBpbiBvbmx5IHNpeCBtb250aHMuIFRoZSB0aGlyZCBvbmUgbmV2ZXIgZ290IG9mZiB0aGUgZHJhd2luZyBib2FyZDsgYW4gYWxtb3N0IGVuam95YWJsZSBleHBlcmllbmNlIGFzIHdlIGNvbmdyYXR1bGF0ZWQgb3Vyc2VsdmVzIG9uIG91ciBjb25zaWRlcmVkIG1hdHVyaXR5LiBBZnRlciBhbGwsIG9ubHkgYW1hdGV1cnMgcHVyc3VlIGJhZCBpZGVhcy48L3A+DQo8cD5UaGUgbW9zdCByZWNlbnQgYXR0ZW1wdCAob3VyIHNpeHRoKSB0b29rIGZpdmUgbW9udGhzLiBBdCB0aGUgZW5kIHdlIGhpdCBhIGJyaWNrIHdhbGwgc28gdGhpY2sgaXQgZmluYWxseSBrbm9ja2VkIHNvbWUgc2Vuc2UgaW50byB1cy4gT3VyIGZpcnN0IGZldyDigJxjdXN0b21lcnPigJ0gZGlkIGluZGVlZCBtYXJ2ZWwgYXQgdGhlIGJlYXV0eSBvZiB0aGUgcHJvZHVjdCwgYnV0IGFsYXMsIHRoZXkgYWxyZWFkeSB1c2VkIHNvbWUgY2x1bmt5LCBzdGVhbS1kcml2ZW4gbGVnYWN5IGFwcGxpY2F0aW9uIHRoYXQgZGlkIHRoZSB0cmljay4gQW55d2F5LCB0aGV5IGhhZCBhbiBJVCBndXkgZm9yIGFsbCB0aGF0IHN0dWZmLiBNb3JlIGFjY3VyYXRlbHksIHRoZSBzZWN0b3IgcmVsaWVkIG9uIHNhbGVzbWVuLCB3aGljaCB3ZSBtb3N0IGNlcnRhaW5seSB3ZXJlIG5vdC4gPC9wPg0KPGgyPkEgcHVuY2ggdG8gdGhlIGZhY2U8L2gyPg0KPHA+VGhlIGxlc3NvbiB3ZSBsZWFybmVkIGZyb20gYWxsIHRoaXMgd2FzIHRoYXQgdGhlIGhvbHkgZ3JhaWwgb2Ygc3RhcnR1cHMgaXMgdmFsaWRhdGlvbi4gV2hpbGUgd2UgY2FuIGFsbCByZWFkIGFydGljbGVzIGFuZCBib29rcyBvbiB0aGUgc3ViamVjdCwgbm90aGluZyB0ZWFjaGVzIHF1aXRlIGxpa2UgYSBwdW5jaCB0byB0aGUgZmFjZSBmcm9tIHJlYWwgbGlmZS4gT3VyIGJyaWxsaWFudCBpZGVhcyB3ZXJlIGJyaWxsaWFudCBvbmx5IGluIG91ciBvd24gbWluZHMuIFdlIGhhZCBpbnZlbnRlZCBhIGZha2UgdmVyc2lvbiBvZiB0aGUgd29ybGQgd2UgaG9wZWQgdG8gY29ucXVlciwgdGhlbiBzb2x2ZWQgcHJvYmxlbXMgZm9yIHRoYXQuIDwvcD4NCjxwPldlIGhhZCBhbHdheXMgYXNzdW1lZCB2YWxpZGF0aW9uIGhhZCB0byBjb21lIGZyb20gY3VzdG9tZXJzLCBhZnRlciBhbGwgdGhleSB3b3VsZCBiZSB0aGUgcGVvcGxlIHdlIGV4cGVjdGVkIHRvIHBheSBmb3IgaXQuIEFzIGEgcmVzdWx0IHdlIGhhZCB0byBjcmVhdGUgc29mdHdhcmUgdGhhdCB3YXMgYXQgbGVhc3QgdXNhYmxlLiBXaGVuZXZlciB3ZSBkaWQgdGhpcyB3ZSBmb3VuZCB0aGUgZmVlZGJhY2sgd2Ugd2VyZSBnZXR0aW5nIGZyb20gdGhlbSB3YXMgcG9vciwgYW5kIGluIG1hbnkgY2FzZXMgbm9uLWV4aXN0ZW50LiBJdCB3b3VsZCBzZWVtIHRoZSBtZW50YWxpdHkgd2FzIHdyb25nLiBDdXN0b21lcnMgcmFyZWx5IHdhbnQgdG8gbnVkZ2UgeW91ciBwcm9kdWN0IGFsb25nLCB0aGV5IGp1c3Qgd2FudCBpdCB0byB3b3JrLiBEZXZlbG9waW5nIGl0IGlzIHlvdXIgam9iLjwvcD4NCjxwPkV2ZW4gZWFybHkgYWRvcHRlcnMgdHVybmVkIG91dCB0byBiZSBhIG1peGVkIGJhZy4gTWFueSBzZWVtZWQgZHJpdmVuIGJ5IG5vdmVsdHksIGFuZCBmZWVkYmFjayBvZnRlbiBkZWdlbmVyYXRlZCBpbnRvIGFuIGVuZGxlc3MgbGlzdCBvZiBuZXcgZmVhdHVyZXM6IGNhbiB5b3UgYWRkIFR3ZWV0cywgSSB3YW50IHRvIHVwbG9hZCBpbWFnZXMsIGNhbiBJIGdlb3RhZyBzdHVmZiBiZWNhdXNlIHRoYXQgd291bGQgYmUgcmVhbGx5IGNvb2wuIFdlIGZvdW5kIG91cnNlbHZlcyBtb3ZpbmcgZXZlciBmdXJ0aGVyIGF3YXkgZnJvbSBhIGZvY3VzZWQgcHJvZHVjdCwgc2VydmluZyB0aGUgbmVlZHMgb2YgcGVvcGxlIHdobyBpbiB0aGUgZW5kIHNlZW1lZCB0byBiZWFyIG5vIHJlbGF0aW9uIHRvIG91ciBpbnRlbmRlZCBjdXN0b21lcnMuIDwvcD4NCjxwPkluIGJvdGggY2FzZXMgY3VzdG9tZXJzIGFuZCBlYXJseSBhZG9wdGVycyBwcm92ZWQgZXhwZW5zaXZlIHRvIGFjcXVpcmU7IHdlIHdhc3RlZCBwcmVjaW91cyBkZXZlbG9wbWVudCB0aW1lIG1hcmtldGluZyBhbmQgcmVhY2hpbmcgb3V0IHRvIHRoZW0uPC9wPg0KPGgyPkZlZWRiYWNrIGlzIGFib3V0IGNoYWxsZW5naW5nIGFzc3VtcHRpb25zPC9oMj4NCjxwPldlIGRpc2NvdmVyZWQgdGhlIGhhcmQgd2F5IHRoYXQgbXVjaCBmZWVkYmFjayB3b3JrcyBhcyBhIGZvY3VzIHNoaWZ0ZXIgcmF0aGVyIHRoYW4gYSBzb2x1dGlvbiBwcm92aWRlci4gV2UgaGFkIGFzc3VtZWQgZmVlZGJhY2sgd291bGQgaGVscCB1cyByZWZpbmUgaWRlYXMsIGJ1dCBpdCBzZWVtcyB0byB3b3JrIGJlc3QgYXMgYSBiYXNpYyBpbmRpY2F0b3Igb2YgcHJvYmxlbXMuIEl0IGlzIGVzcGVjaWFsbHkgZ29vZCBhdCBjaGFsbGVuZ2luZyB0aGUgYXNzdW1wdGlvbnMgb2YgeW91ciBwcm9qZWN0LCB0aGUgb25lcyB5b3Ugb3Zlcmxvb2sgaW4gdGhlIHJ1c2ggdG8gcHJvZHVjZSB3aGlsZSB0cnlpbmcgdG8gaGlkZSB0aGUgcHJvamVjdCBmcm9tIHByeWluZyBleWVzLjwvcD4NCjxwPlNvbWUgb2YgdGhlIGJlc3QgZmVlZGJhY2sgd2UgcmVjZWl2ZWQgd2FzIGZyb20gdGhvc2UgdW5jb25uZWN0ZWQgdG8gdGhlIHRhcmdldCBhdWRpZW5jZS4gV2hlbiB5b3UgYXJlIGJ1c3kgaW52ZW50aW5nIGNsZXZlciBzb2x1dGlvbnMgaXQgb2Z0ZW4gdGFrZXMgYW4gb3V0c2lkZXIgdG8gaGlnaGxpZ2h0IHRoZSBnbGFyaW5nbHkgb2J2aW91czogd2hhdCBkb2VzIGl0IGRvLCB3aGF0IHByb2JsZW0gZG9lcyBpdCBzb2x2ZT8gV2hlbiB5b3VyIGFuc3dlciByZXF1aXJlcyBkb21haW4tc3BlY2lmaWMga25vd2xlZGdlIHlvdXIgY2hhbGxlbmdlciBsYWNrcyBpdCBxdWlja2x5IGhpZ2hsaWdodHMgd2Vha25lc3NlcyB5b3UgaGF2ZSBtaXNzZWQuPC9wPg0KPHA+SW5kZWVkLCB3aGVuIHlvdSBhcmUgZGV2ZWxvcGluZyBzb2x1dGlvbnMgdG8gZmFrZSBwcm9ibGVtcywgeW91ciBvbmx5IGN1c3RvbWVycyBjYW4gYmUgZmFrZSBjdXN0b21lcnMgYW5kIGZha2UgZWFybHkgYWRvcHRlcnM7IGFuIGV4cGVuc2l2ZSwgaWYgY29tbW9uLCBtaXN0YWtlIGV2ZXJ5b25lIG1ha2VzIGF0IHNvbWUgcG9pbnQuIEl0IGlzIHRoZSB2ZXJ5IGZhbHNlbmVzcyBvZiBzZWxmLWdlbmVyYXRlZCBpZGVhcyB5b3Ugb2Z0ZW4gbmVlZCB0byByZWN0aWZ5LCBhbmQgZm9yIHRoYXQgd2UgZm91bmQgdGhlIGJydXRhbCBob25lc3R5IG9mIHRoZSBpbnRlcmVzdGVkIHN0cmFuZ2VyIHVzZWZ1bC4gPC9wPg0KPGgyPkhpZGluZyBpcyBtb3JlIGV4cGVuc2l2ZSB0aGFuIHRoZSByaXNrIG9mIHRoZWZ0PC9oMj4NCjxwPkl0IHdhcyB0aGVuIHdlIHJlYWxpc2VkIHRoZSBlbmVteSB3YXMgbm90IGNvbXBldGl0b3JzLCBmZWxsb3cgZGV2ZWxvcGVycyBhbmQgZW50cmVwcmVuZXVycywgYnV0IGluY29ycmVjdCBmb2N1cy4gRGV2ZWxvcGluZyBhIHN0YXJ0dXAgaW4gaXNvbGF0aW9uIGlzIHNpbWlsYXIgdG8gZ3Jvd2luZyBmbG93ZXJzIGluIGEgd2luZG93bGVzcyBiYXNlbWVudDsgaXQgY2FuIGJlIGRvbmUgaWYgeW91IGtub3cgaG93LCBidXQgdGhlIGVuZXJneSBuZWVkZWQgdG8gbWFrZSBpdCBncm93IG11c3QgYmUgcHJvdmlkZWQgZXhjbHVzaXZlbHkgYnkgeW91LiBGYXIgYmV0dGVyIHRvIGRvIGl0IGluIHRoZSBnYXJkZW4gd2hlcmUgcGFzc2VycyBieSBjYW4gYWRtaXJlIHlvdXIgaGFuZHkgd29yaywgb3IgbGF1Z2ggYXQgeW91ciBmb29saXNobmVzcyBwZXJoYXBzLiA8L3A+DQo8cD5JbiBvdXIgdHJhdmVscyBvbmUgc3Rhcmsgb2JzZXJ2YXRpb24gYmVhdCB0aGVtIGFsbDogdGhlIHByaXplIGdvZXMgdG8gdGhlIGJhdHRsZS1oYXJkZW5lZCBpZGVhcyB0ZXN0ZWQgaW4gdGhlIHJlYWwgd29ybGQuIFdoZXRoZXIgaXQgaXMgYSBidW5jaCBvZiBzdHJhbmdlcnMgYWJ1c2luZyB5b3VyIHByZWNpb3VzIHByb2plY3Qgb3IgYWN0dWFsIGN1c3RvbWVycyBjb25mdXNlZCBhcyB0byB3aGF0IGl0IGRvZXMsIHZhbGlkYXRpb24gaXMgdGhlIGtleS4gVGhlIGFsdGVybmF0aXZlIOKAkyBicmlsbGlhbnQgdW50ZXN0ZWQgaWRlYXMg4oCTIGNhbiBvYnZpb3VzbHkgc3VjY2VlZCwgYnV0IHJlbHkgbW9yZSBoZWF2aWx5IG9uIGx1Y2suIE1vcmUgaW1wb3J0YW50bHksIHlvdXIgc29sdXRpb24gbWF5IGJlIHNvIGJhZCBpdCBoYXMgbm8gY3VzdG9tZXJzLCBubyBtYXR0ZXIgaG93IGhhcmQgeW91IHRyeSB0byBjb252aW5jZSB5b3Vyc2VsZiB0aGVpciBhYnNlbmNlIGlzIGp1c3QgYSBtYXJrZXRpbmcgd2Vha25lc3MuIDwvcD4NCjxoMj5BbiBpZGVhcyBjb21tdW5pdHk8L2gyPg0KPHA+QWxvbmcgdGhlIHdheSB3ZSBoYWQgc2VlbiBvdGhlcnMgYXNrIGZvciBhZHZpY2UuIFdlIG9mdGVuIGRpc21pc3NlZCB0aGVzZSBmb3J1bSBwb3N0cyBhbmQgYmxvZyBhcnRpY2xlcyBhcyB0aGUgd29yayBvZiBhbWF0ZXVycy4gUGVvcGxlIGFza2luZyBpZiBhbnlvbmUgd291bGQgY29tbWVudCBvbiB0aGVpciBpbnRlbnRpb24gdG8gb2ZmZXIgdHJhaW5pbmcgY291cnNlcyBmb3IgUGhvdG9zaG9wLCB3ZWJzaXRlcyBmb3IgcGhvdG9ncmFwaHksIG9yIGNvbW11bmljYXRpb24gdG9vbHMgYmFzZWQgb24gc29tZSBvcGVuIHNvdXJjZSBwcm90b2NvbC4gWWV0IG1hbnkgb2YgdGhlbSByZWNlaXZlZCBjb25zaWRlcmVkIHJlcGxpZXM7IHNvbWUgb2YgdGhlbSB0cnVseSBpbnNpZ2h0ZnVsIHJlc3BvbnNlcy4gVG90YWwgc3RyYW5nZXJzIHdlcmUgc3BhcmluZyBzb21lIHRpbWUgdG8gbWFrZSBjb250cmlidXRpb25zIGluIGEgc3Bpcml0IG9mIGFsdHJ1aXNtLiBUaGUgV2lraXBlZGlhIGVmZmVjdCBzZWVtZWQgdG8gYXBwbHkgdG8gdGhlIHN0YXJ0dXAgc2VjdG9yLjwvcD4NCjxwPldlIHJlYWxpemVkIHdlIG5lZWRlZCBzb21ldGhpbmcgbGlrZSB0aGlzLiBBIHBsYWNlIHRvIGFzayBzb21lIGZ1bmRhbWVudGFsIHF1ZXN0aW9ucyBhYm91dCBpZGVhcyBhbmQgcHJvamVjdHMgd2hpbGUgdGhleSB3ZXJlIHN0aWxsIGlkZWFzLiBXaGF0IHdlIG5lZWRlZCB3YXMgYSBjb21tdW5pdHkgb2YgcGVvcGxlIGludGVyZXN0ZWQgaW4gdGhlIGdlbmVyYXRpb24gYW5kIHZhbGlkYXRpb24gb2YgcHJvamVjdHMsIGFuZCBhIG1lY2hhbmlzbSB0byBtYWtlIGl0IGVhc3kgdG8gYWNjb21wbGlzaCB0aGlzLiBXZSBuZWVkZWQgYSBwbGFjZSB3ZSBjb3VsZCBwdWJsaXNoIGNvbmNlcHRzIGZvciBvdGhlcnMgdG8gc2NydXRpbml6ZS48L3A+DQo8cD5TbyB3ZSBjcmVhdGVkIFdpbGwgVGhpcyBGbHk/LCBhbiBhdHRlbXB0IHRvIGhhcm5lc3MgdGhlIGtub3dsZWRnZSBhbmQgZXhwZXJpZW5jZSB1bmV2ZW5seSBkaXN0cmlidXRlZCBhcm91bmQgdGhlIHdlYi4gU2luY2Ugd2UgYmVsaWV2ZSBpbiBlYXRpbmcgb3VyIG93biBkb2cgZm9vZCwgd2UgaGF2ZSByZWxlYXNlZCBhIG1pbmltdW0gdmlhYmxlIHByb2R1Y3QgdmVyc2lvbiBhdCBhIHZlcnkgZWFybHkgc3RhZ2UuIFdlIG9mIGNvdXJzZSBoYXZlIGlkZWFzIGFib3V0IGhvdyBpdCBvdWdodCB0byBkZXZlbG9wLCBidXQgdGhpcyB0aW1lIHJvdW5kIHdlIGFyZSBwdXR0aW5nIHRoZW0gb24gdGhlIGJhY2sgYnVybmVyLiA8L3A+DQo8cD5PdXIgYmVsaWVmIGlzIHRoYXQgdGhlcmUgaXMgc3VjaCBhIHRoaW5nIGFzIGEgc3RhcnR1cCBjb21tdW5pdHkgd2hlcmUgZXZlcnlvbmUgaW52b2x2ZWQgaGFzIHNvbWUgdW5pcXVlIGNvbWJpbmF0aW9uIG9mIGV4cGVyaWVuY2UgYW5kIGluc2lnaHQgd2UgbGFjay4gVGhhdCBpcyB0aGUgcG9pbnQgb2YgV1RGOyB3ZSBhcmUgdGVzdGluZyB0aGUgaHlwb3RoZXNpcyB0aGF0IGZlZWRiYWNrLCBldmVuIGZyb20gbm9uLWN1c3RvbWVycywgY2FuIGhlbHAgcGVvcGxlIHJhcGlkbHkgZGV2ZWxvcCBhIHByb2plY3QgZnJvbSBhIGNvbmNlcHQgdG8gYSB3b3JrYWJsZSBwcm9kdWN0IGluIHNob3J0IG9yZGVyIGFuZCBjYW4gZG8gc28gaW4gYnJvYWQgZGF5bGlnaHQuIFdoeSBub3Qgam9pbiB1cyBhbmQgc2VlIHdoYXQgd2UgY2FuIGFjY29tcGxpc2ggdG9nZXRoZXI/PC9wPg0KPGRpdiBjbGFzcz0ibWVzc2FnZSI+DQogIDxwPldpbGwgVGhpcyBGbHk/IGlzIGFuIG9ubGluZSBwbGF0Zm9ybSB0byBnYWluIGZlZWRiYWNrIGFuZCB2YWxpZGF0aW9uIG9uIG5ldyBpZGVhcy4gSWYgeW91IGhhdmUgYSBwcm9qZWN0IGluIG1pbmQgYW5kIGhhdmUgdGhlIGNvdXJhZ2UgdG8gdGVzdCBpdHMgYXNzdW1wdGlvbnMgd2l0aCBvdGhlcnMsIHRoZW4gPGEgaHJlZj0iaHR0cDovL3dpbGx0aGlzZmx5Lm5ldC9wcm9qZWN0cy8xLyI+Y2hlY2sgaXQgb3V0PC9hPi48L3A+DQo8L2Rpdj5kAgcPFgIfAAUDV1RGZAIDDxYCHgdWaXNpYmxlaGQCBw9kFgQCAQ9kFgICBQ8PFgYfAAUMJmxhcXVvOyBCbG9nHgtOYXZpZ2F0ZVVybAUGL2Jsb2cvHwFnZGQCBQ8WAh8BaGRko7SdADWoN7q8+qQP1xdFGcUZ+vWXnWqZKk+TXdNGcMk=" />
 </div>
 
-<div class="login-sheet-bottom"></div>
-
+		<div class="blog">
+			<div class="wrapper">
+				<div id="divBlog">
+					
+					<h1>
+						We failed, and not for the first time; then something snapped</h1>
+					<p>
+						06-May-2013
+					</p>
+					<p>
+						<div class="intro-text">
+<p>Our most recent startup venture did not just fail, it deserved to fail. Like many before us we were convinced of our ability to solve problems everyone else had missed. What we ourselves missed was that solving non-existent problems is a common mistake for innovators, the solution to which is public scrutiny by others. </p>
 </div>
-
-</form>
-<style>
-  @import   '../../../../css/main.css';
-</style>
-
-
-<div id="frame">
-
-
-
-<div class="stripe"></div>
-
-<div class="menu">
-
-  <div class="menu-home">
-    <a class="menu-item" href="http://ilyabirman.net/"><i><u>Ilya Birman</u></i></a>
-  </div>
-    
-  <div class="menu-sections">
-    <a class="menu-item" href="/projects/"><u>Projects</u></a><a class="menu-item" href="/music/"><u>Music</u></a><a class="menu-item" href="/world/"><u>World</u></a><a class="menu-item menu-item-selected" href="http://ilyabirman.net/meanwhile/"><i><u>Blog</u></i></a>
-  </div>
-
-  
-    
-  <div class="menu-end"></div>
-  
+<p>We recently abandoned our latest entrepreneurial attempt, a new kind of IT monitoring tool aimed at small companies. We closed it down when we realized small companies did not need or want the kind of solution we were offering. In doing so the project joined an exalted list of failures we have racked up over the last five years. All of them failed to gain customers. More importantly, they all deserved to fail. </p>
+<p>Like many would-be startups we made one key mistake; we developed amazing products that solved problems no one actually had. More specifically, we developed them in isolation, absolutely convinced of the rightness of our approach and the impact they would have on the target audience. Worried about others stealing our great ideas, we hid them from scrutiny, unaware that not only were they theft-proof but sale-proof.</p>
+<p>The result was a series of nicely designed apps that went nowhere. All of them solved problems, two of them did so very elegantly, and not one of them gained enough momentum to even cover our costs let alone make profits. They were failures in every sense.</p>
+<h2>Who needs validation?</h2>
+<p>Like others we found these failures demoralizing. Each time we persevered because we had learned so much. Surely we could put this experience to good use? As plausible as this sounds our great weakness was one we spent virtually no time considering: we did not try to validate each idea until it was good and ready.</p>
+<p>The first time round this was over two years work; two years to find out no one cared at all about our amazing product. Second time round we were wiser, we failed in only six months. The third one never got off the drawing board; an almost enjoyable experience as we congratulated ourselves on our considered maturity. After all, only amateurs pursue bad ideas.</p>
+<p>The most recent attempt (our sixth) took five months. At the end we hit a brick wall so thick it finally knocked some sense into us. Our first few “customers” did indeed marvel at the beauty of the product, but alas, they already used some clunky, steam-driven legacy application that did the trick. Anyway, they had an IT guy for all that stuff. More accurately, the sector relied on salesmen, which we most certainly were not. </p>
+<h2>A punch to the face</h2>
+<p>The lesson we learned from all this was that the holy grail of startups is validation. While we can all read articles and books on the subject, nothing teaches quite like a punch to the face from real life. Our brilliant ideas were brilliant only in our own minds. We had invented a fake version of the world we hoped to conquer, then solved problems for that. </p>
+<p>We had always assumed validation had to come from customers, after all they would be the people we expected to pay for it. As a result we had to create software that was at least usable. Whenever we did this we found the feedback we were getting from them was poor, and in many cases non-existent. It would seem the mentality was wrong. Customers rarely want to nudge your product along, they just want it to work. Developing it is your job.</p>
+<p>Even early adopters turned out to be a mixed bag. Many seemed driven by novelty, and feedback often degenerated into an endless list of new features: can you add Tweets, I want to upload images, can I geotag stuff because that would be really cool. We found ourselves moving ever further away from a focused product, serving the needs of people who in the end seemed to bear no relation to our intended customers. </p>
+<p>In both cases customers and early adopters proved expensive to acquire; we wasted precious development time marketing and reaching out to them.</p>
+<h2>Feedback is about challenging assumptions</h2>
+<p>We discovered the hard way that much feedback works as a focus shifter rather than a solution provider. We had assumed feedback would help us refine ideas, but it seems to work best as a basic indicator of problems. It is especially good at challenging the assumptions of your project, the ones you overlook in the rush to produce while trying to hide the project from prying eyes.</p>
+<p>Some of the best feedback we received was from those unconnected to the target audience. When you are busy inventing clever solutions it often takes an outsider to highlight the glaringly obvious: what does it do, what problem does it solve? When your answer requires domain-specific knowledge your challenger lacks it quickly highlights weaknesses you have missed.</p>
+<p>Indeed, when you are developing solutions to fake problems, your only customers can be fake customers and fake early adopters; an expensive, if common, mistake everyone makes at some point. It is the very falseness of self-generated ideas you often need to rectify, and for that we found the brutal honesty of the interested stranger useful. </p>
+<h2>Hiding is more expensive than the risk of theft</h2>
+<p>It was then we realised the enemy was not competitors, fellow developers and entrepreneurs, but incorrect focus. Developing a startup in isolation is similar to growing flowers in a windowless basement; it can be done if you know how, but the energy needed to make it grow must be provided exclusively by you. Far better to do it in the garden where passers by can admire your handy work, or laugh at your foolishness perhaps. </p>
+<p>In our travels one stark observation beat them all: the prize goes to the battle-hardened ideas tested in the real world. Whether it is a bunch of strangers abusing your precious project or actual customers confused as to what it does, validation is the key. The alternative – brilliant untested ideas – can obviously succeed, but rely more heavily on luck. More importantly, your solution may be so bad it has no customers, no matter how hard you try to convince yourself their absence is just a marketing weakness. </p>
+<h2>An ideas community</h2>
+<p>Along the way we had seen others ask for advice. We often dismissed these forum posts and blog articles as the work of amateurs. People asking if anyone would comment on their intention to offer training courses for Photoshop, websites for photography, or communication tools based on some open source protocol. Yet many of them received considered replies; some of them truly insightful responses. Total strangers were sparing some time to make contributions in a spirit of altruism. The Wikipedia effect seemed to apply to the startup sector.</p>
+<p>We realized we needed something like this. A place to ask some fundamental questions about ideas and projects while they were still ideas. What we needed was a community of people interested in the generation and validation of projects, and a mechanism to make it easy to accomplish this. We needed a place we could publish concepts for others to scrutinize.</p>
+<p>So we created Will This Fly?, an attempt to harness the knowledge and experience unevenly distributed around the web. Since we believe in eating our own dog food, we have released a minimum viable product version at a very early stage. We of course have ideas about how it ought to develop, but this time round we are putting them on the back burner. </p>
+<p>Our belief is that there is such a thing as a startup community where everyone involved has some unique combination of experience and insight we lack. That is the point of WTF; we are testing the hypothesis that feedback, even from non-customers, can help people rapidly develop a project from a concept to a workable product in short order and can do so in broad daylight. Why not join us and see what we can accomplish together?</p>
+<div class="message">
+  <p>Will This Fly? is an online platform to gain feedback and validation on new ideas. If you have a project in mind and have the courage to test its assumptions with others, then <a href="http://willthisfly.net/projects/1/">check it out</a>.</p>
 </div>
-
-<div class="blog-page-heading">
-
-
-  
-
-</div>
-
-
-
-
-<div class="main-content">
-
-
-
-
-
-
-
-
-
-<div class="only note e2-note-favourite">
-
-<h1 class="published visible e2-smart-title">Timed modes
-<span class="icons">
-
-<span class="i-favourite"></span> 
-
-
-
-
-
-</span>
-
-</h1>
-
-
-
-
-<p class="date" title="9 May 2013, 04:02, GMT+06:00">May 9, 4:02</p>
-
-
-
-
-
-<div class="text published visible">
-<p>As you may know, <a href="http://en.wikipedia.org/wiki/Mode_(computer_interface)">modes</a> are bad. Even worse are <i>timed modes</i> often used in the human interface of consumer electronics.</p>
-<p>A mode is a state of user interface in which the same user action leads to the same result; in different modes, results of the same actions are different. Photoshop is famous for its exuberant use of modes: a click within an open image may do <i>anything</i> depending on what tool and options you have selected. The problem with modes is that you are not constantly aware of the current mode, which leads to errors: you want to draw a line, but accidentally create a gradient fill.</p>
-<p>Now imagine a TV remote. Left-right buttons change volume and up-down buttons switch channels. These four buttons are also used for menu navigation. Now, when you are in the menu and you want to make the TV louder, you press the right button through habit. Unfortunatelly, now the button means “make screen aspect ratio wider”. The menu is not just a mode, it is a timed mode: if you don’t press anything for 10 seconds, the menu will be closed. If you are trying to set up this TV with a help of a user manual, you will be very frustrated: every time you look up the manual, the menu disappears and you have to start over.</p>
-<p>Timed modes in a car UI are not just frustrating, but can also be dangerous. To change the audio bass level, you have to go to the menu, find the EQ settings, select “bass” and then adjust it with a knob. By the time you get to the necessary menu item, the traffic light turns green, so you have to postpone the adjustments until the next traffic light. Chances are, you will then need to navigate the menu again. If you know that the interface will not wait for you until the next traffic light, you will be forced to adjust bass while driving.</p>
-<p>If you cannot avoid modes in your user interface altogether, at least don’t use timed modes. If I have changed my mind and don’t want to set up the TV or adjust the bass, I will just press cancel myself.</p>
-</div>
-
-
-
-
-<div class="tags">
-<a href="http://ilyabirman.net/meanwhile/tags/interface/">interface</a></div>
-
-
-
-
-</div>
-
-
-<style>
-#ilyabirman-share-element * { border: none }
-</style>
-<div id="ilyabirman-share-element" share:url="http://ilyabirman.net/meanwhile/all/timed-modes/" share:twiacc="ilyabirmannet" style="margin-top: -1.5em"></div>
-
-<br />
-<br />
-<br />
-
-
-  
-
-
-
-<div class="pages">
-
-<div class="pages-prev-next">
-<table cellspacing="0" cellpadding="0" border="0">
-<tr valign="top">
-<td><a href="http://ilyabirman.net/meanwhile/all/the-home-button-problem-of-ios/">The Home button problem of iOS</a></td>
-<td>&nbsp;&nbsp;&nbsp;</td>
-<td>&larr;</td>
-<td>&nbsp;</td>
-<td><span class="keyboard-shortcut">Ctrl</span></td>
-<td>&nbsp;</td>
-<td>&rarr;</td>
-<td>&nbsp;&nbsp;&nbsp;</td>
-<td><a href="http://ilyabirman.net/meanwhile/all/accidental-tech-podcast/">Accidental Tech Podcast</a></td>
-</tr>
-</table>
-</div>
-
-</div>
-
-
-
-<div class="comments">
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-  
-
-
-
-
-
-
-<style>
-.ibs8-popular {
-  width: 620px;
-  -webkit-columns: 3;
-  -moz-columns: 3;
-  columns: 3;
-  -webkit-column-gap: 40px;
-  -moz-column-gap: 40px;
-  column-gap: 40px;
-  margin: 0 0 24px 0; 
-}
-.ibs8-popular p {
-  display: inline-block;
-}
-</style>
-<h3>Popular</h3>
-<div class="ibs8-popular">
- 
-
-    <p><a href="http://ilyabirman.net/meanwhile/all/the-home-button-problem-of-ios/" title="28 April 2013, 23:37">The Home button problem of iOS</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/sim-cards-must-die/" title="23 March 2012, 14:41">SIM cards must die</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/online-video-and-opening-titles/" title="12 April 2013, 02:17">Online video and opening titles</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/great-design-of-php/" title="13 April 2012, 03:05">The great design of PHP</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/dslr-dock/" title="7 February 2012, 12:57">DSLR cameras should become iPhone docks</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/calendar-icon-manual/" title="23 August 2012, 13:12">Calendar icon manual</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/2012/04/07/1/" title="7 April 2012, 03:06">Got Git</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/splash-screens/" title="23 December 2012, 16:29">Splash screens</a></p><br />  <p><a href="http://ilyabirman.net/meanwhile/all/the-dark-secret-of-yellow/" title="10 June 2012, 16:11">The dark secret of yellow</a></p><br />
-</div>
-
-
-
-
-
-<div style="margin-bottom: 24px">
-
-<div class="form-search">
-
-
-<form
-  id="e2-form-search"
-  class="e2-enterable"
-  action="http://ilyabirman.net/meanwhile/@actions/search/"
-  method="post"
-  accept-charset="utf-8"
->
-
-<div>
-
-  <label>
-    <span class="i-loupe"></span>
-  	<input type="search" class="text" name="query" id="query"
-  		value=""
-  	/>
-    <button type="submit"><span class="i-enter"></span></button>
-  </label>
-
-</div>
-
-</form>
-
-
-</div>
-
-<!--
-<a href="http://ilyabirman.net/meanwhile/tags/">Tags</a>
--->
-</p>
-
-
-<div style="clear: left"></div>
-
-</div>
-
-
-
-
-</div>
-
-<div class="clear"></div>
-
+					</p>
+					<p>
+						WTF
+					</p>
+
+					
+					
+					<a id="comments"></a><div id="divComments" class="comments"><h2>No comments yet</h2><p><a href="/blog/2013/we-failed-then-something-snapped/comment/">Add Comment</a></p></div>
+					<a href="#top">Back to top &uarr;</a>
+				</div>
+										
+			</div>
+			
 
 <div class="footer">
+	<div class="logo">
+		<p>
+			<a href="http://willthisfly.net/">
+				<img id="ft_imgLogo" src="../../../assets/images/logo.png" alt="Logo" style="border-width:0px;height:172px;width:340px;" />
+			</a>
+		</p>
+	</div>
+	<ul>
+		<li><a href="/blog/">WTF Blog</a></li>
+		<li><a href="mailto:mail@willthisfly.net">Contact us</a></li>
+	</ul>
+</div>		
+		</div>
+		
+<div class="sitemenu">
+	<div id="sm_divLocation" class="location">
+		<p><a id="sm_lnkHome" href="../../../">« Homepage</a>
+			
+			<a id="sm_lnkOther" href="/blog/">&laquo; Blog</a>
+		</p>
+	</div>
+	<div class="actions">
+		<ul id="sm_ulNotLoggedIn">
+			<li><a id="sm_lnkRegister" href="../../../register/">Create Account</a></li>
+			<li><a id="sm_lnkLogin" href="../../../login/">Login</a></li>
+		</ul>
 
-  <div class="footer-copyright">
-          <p>© 2013</p>
-      </div>
-   
-  <div class="footer-email">
-
-    <p>E-mail: <a href="mailto:ilyabirman@ilyabirman.ru">ilyabirman@ilyabirman.ru</a></p>
-
-    <p>
-      <span title="E2 (release 2.4a, v2753)">Powered by <a href="http://blogengine.ru/">Aegea</a></span>                  <a id="e2-visual-login" href="http://ilyabirman.net/meanwhile/sign-in/" class="nu"><img src="system/theme/images/login.png" class="icon" alt="Login" width="16" height="16" valign="bottom" style="margin-bottom: 2px" /></a>
-          </p>
-
-  </div>
-
-  
+		
+	</div>
 </div>
 
-<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter155348 = new Ya.Metrika({id:155348, clickmap:true, webvisor:true}); } catch(e) {} }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/155348" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
-</div>
 
+	</form>
 </body>
-
 </html>
+

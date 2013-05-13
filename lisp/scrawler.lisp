@@ -141,7 +141,7 @@ children that matches match-seq"
 ;;; article normalizer
 (defun unbreak (str)
   "remove break entities like &nbsr; and &ldquot etc."
-  (regex-replace-all "&.{0,9};" str))
+  (regex-replace-all "&.{0,9};" str " "))
 
 (defun count-sentences (str)
   "count the number of sentences in this string"
@@ -150,6 +150,9 @@ children that matches match-seq"
 (defun get-word-list (str)
   (split "\\s+" (string-downcase str)))
 
+(defun get-score (node)
+  
+    
 
 
         
