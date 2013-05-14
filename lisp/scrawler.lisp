@@ -9,8 +9,8 @@
   (points 0 :type fixnum)
   (url "" :type string)
   (doc "" :type string))
-  
-  
+
+
 
 (defun version ()
   "display the version of the scrawler on REPL"
@@ -44,12 +44,12 @@ have the first n elements of lst"
     (if (< n 0)
         (split-iter lst (+ (length lst) n) nil)
         (split-iter lst n nil))))
-                      
-  
-  
-                                 
-                                 
-                                 
+
+
+
+
+
+
 
 
 ;;; html related
@@ -167,7 +167,7 @@ children that matches match-seq"
     (element-attribute (html-chain (car triplet) 
                                    '(("td" 2) "a"))
                        "href")))
-  
+
 
 (defun acquire-news (triplet)
   "construct a news object from a <tr> triplet"
@@ -194,8 +194,8 @@ children that matches match-seq"
                     (element-attribute (html-chain (cadr more-trs)
                                                    '(("td" 1) "a"))
                                        "href"))))))))
-                      
-            
+
+
 ;;; article normalizer
 (defparameter *word-extractor* (create-scanner "^([a-z]+)[\\.\\?:]?$"))
 
@@ -205,29 +205,85 @@ children that matches match-seq"
 
 (defun count-sentences (str)
   "count the number of sentences in this string"
-  (ash (length (all-matches "(?<!mr|ms|dr|no)\\.|\\?|\\!" str)) -1))
+  (ash (length (all-matches "(?<!mr|ms|dr|no)(\\.|\\?|\\!)(\\s+|$)" str)) -1))
 
 (defun get-word (str)
   (ignore-errors
     (aref (nth-value 1 (scan-to-strings *word-extractor* str)) 0)))
-        
+
 
 (defun get-word-list (str)
   (remove-if #'null (mapcar #'get-word (split "\\s+" (string-downcase str)))))
 
+(defun add-list (x y)
+  (if (and x y)
+      (cons (+ (car x) (car y)) 
+            (add-list (rest x) (rest y)))))
 
-  
-    
+
+(defun better-score-p (a b)
+  (or (> (car a) (* (car b) 3))
+      (and (< (car b) (* (car a) 3))
+           (< (cadr b) (cadr a)))))
 
 
-        
-      
-                                
-  
 
-    
-    
-  
-      
-    
-  
+
+(defun pick-best-score (score-list)
+  (reduce (lambda (acc cur)
+            (if (better-score-p (cdr cur) (cdr acc))
+                cur acc))
+          (loop for key being the hash-keys of score-list
+             using (hash-value value)
+             collect (cons key value))))
+
+(defun analyze-node (node)
+  "return (path sentence-count word-count) list"
+  (cond ((stringp node)
+         (let ((filtered (unbreak node)))
+           (list nil ;; no path for string node
+                 (count-sentences filtered) ;; count sentences
+                 (length (get-word-list filtered))))) ;; count words
+
+        ((lhtml-children node)
+         (let ((score-list (make-hash-table :test #'equal)))
+           (mapcar (lambda (x) 
+                     (let* ((score (analyze-node x))
+                            (path (car score)))
+                       (let ((existed (gethash path score-list)))
+                         (if existed
+                             (setf (gethash path score-list) 
+                                   (add-list (cdr score) existed))
+                             (setf (gethash path score-list) (cdr score))))))
+                   (lhtml-children node))
+           (let ((best (pick-best-score score-list)))
+             (cons (cons (car node) (car best))
+                   (cdr best)))))
+  (t (list 0 0))))
+
+(defun analyze-web-page (uri)
+  (analyze-node (parse (http-request uri) (make-lhtml-builder))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

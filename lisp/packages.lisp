@@ -16,6 +16,9 @@
            #:lhtml-chain
            #:fetch-hckr-news-list
            ;; debugging
+           #:analyze-web-page
+           #:analyze-node
+           #:add-list
            #:get-word
            #:unbreak
            #:count-sentences
