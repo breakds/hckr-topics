@@ -289,10 +289,54 @@ children that matches match-seq"
                                     folder)
                    :direction :output
                    :if-exists :supersede)
+    (print (news-points news-item))
     (print (mapcan (lambda (x)
                      (get-word-list (unbreak x)))
                    (extract-article (news-url news-item))))))
 
+;;; main scrawler
+
+                 
+
+(defparameter *hckrnews-url* "https://news.ycombinator.com/")
+
+
+(defparameter *blacklist* '("github.com"))
+
+(defun blacklisted (url)
+  (reduce (lambda (acc cur)
+            (if acc
+                acc
+                (when (all-matches cur url) t)))
+          *blacklist* :initial-value nil))
+
+
+(defun run-scrawler (&key (required-num 200) (folder "./"))
+  (ensure-directories-exist folder)
+  (let ((count 0))
+    (labels ((scrawl-iter (list-key)
+               (multiple-value-bind (lst more) 
+                   (fetch-hckr-news-list (format nil "~a~a"
+                                                 *hckrnews-url*
+                                                 list-key))
+                 (loop for item in lst
+                    do (when (not (blacklisted (news-url item)))
+                         (handler-case
+                             (progn
+                               (format t "->~t~a" (news-title item))
+                               (save-article item folder)
+                               (format t " [done] ~a/~a~%" (incf count) required-num))
+                         (error () (format t " [fail]~%")))))
+                 (when (< count required-num)
+                   (loop for i below 10
+                      do (sleep 2)
+                        (format t "~a.." i))
+                   (fresh-line)
+                   (scrawl-iter (if (eq (char more 0) #\/)
+                                    (subseq more 1)
+                                    more))))))
+
+      (scrawl-iter ""))))
 
 
 

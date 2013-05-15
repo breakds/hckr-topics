@@ -16,7 +16,9 @@
            #:lhtml-chain
            #:lhtml-dfs-chain
            #:fetch-hckr-news-list
+           #:run-scrawler
            ;; debugging
+           #:blacklisted
            #:extract-article
            #:analyze-web-page
            #:analyze-node
