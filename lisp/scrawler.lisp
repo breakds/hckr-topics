@@ -7,8 +7,7 @@
   (id 0 :type fixnum)
   (title "" :type string)
   (points 0 :type fixnum)
-  (url "" :type string)
-  (doc "" :type string))
+  (url "" :type string))
 
 
 
@@ -135,6 +134,18 @@ children that matches match-seq"
       (lhtml-chain (lhtml-named-child node (car spec-seq))
                    (rest spec-seq))))
 
+(defun lhtml-dfs-chain (node path)
+  "starting from the given node, fetch all the text/string that
+  satisfies the path"
+  (if (null path)
+      (when (stringp node)
+        (list node))
+      (when (and (consp node)
+               (eq (car node) (car path)))
+        (mapcan (lambda (x)
+                  (lhtml-dfs-chain x (rest path)))
+                (lhtml-children node)))))
+
 
 
 
@@ -197,7 +208,7 @@ children that matches match-seq"
 
 
 ;;; article normalizer
-(defparameter *word-extractor* (create-scanner "^([a-z]+)[\\.\\?:]?$"))
+(defparameter *word-extractor* (create-scanner "^([a-z]+)[\\.\\?:,;]?$"))
 
 (defun unbreak (str)
   "remove break entities like &nbsr; and &ldquot etc."
@@ -263,6 +274,33 @@ children that matches match-seq"
 
 (defun analyze-web-page (uri)
   (analyze-node (parse (http-request uri) (make-lhtml-builder))))
+
+(defun extract-article (uri)
+  (let ((dom (parse (http-request uri) (make-lhtml-builder))))
+    (let ((result (analyze-node dom)))
+      (lhtml-dfs-chain dom (car result)))))
+
+
+
+(defun save-article (news-item folder)
+  (with-open-file (*standard-output* 
+                   (merge-pathnames (format nil "~a.txt" 
+                                            (news-id news-item))
+                                    folder)
+                   :direction :output
+                   :if-exists :supersede)
+    (print (mapcan (lambda (x)
+                     (get-word-list (unbreak x)))
+                   (extract-article (news-url news-item))))))
+
+
+
+
+                              
+
+
+
+
 
 
 

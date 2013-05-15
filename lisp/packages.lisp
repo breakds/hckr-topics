@@ -14,8 +14,10 @@
            #:html-collect
            #:lhtml-named-child
            #:lhtml-chain
+           #:lhtml-dfs-chain
            #:fetch-hckr-news-list
            ;; debugging
+           #:extract-article
            #:analyze-web-page
            #:analyze-node
            #:add-list
