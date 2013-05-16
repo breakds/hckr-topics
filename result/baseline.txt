@@ -1,0 +1,154 @@
+--------------------------------------------------
+topic 0: (0.1429)
+0.01354   web
+0.01273   content
+0.00869   open
+0.00767   code
+0.00686   drm
+0.00677   information
+0.00537   make
+0.00477   work
+0.00473   javascript
+0.00470   software
+0.00468   html
+0.00461   project
+0.00461   access
+0.00437   api
+0.00429   source
+0.00429   support
+0.00421   user
+0.00408   developers
+0.00402   eme
+0.00398   li
+--------------------------------------------------
+topic 1: (0.1429)
+0.01577   people
+0.00658   make
+0.00593   good
+0.00558   time
+0.00527   things
+0.00506   back
+0.00493   read
+0.00386   reply
+0.00380   thing
+0.00376   gun
+0.00361   made
+0.00335   point
+0.00330   world
+0.00329   feel
+0.00329   post
+0.00328   life
+0.00320   judge
+0.00310   find
+0.00307   wrong
+0.00287   person
+--------------------------------------------------
+topic 2: (0.1429)
+0.00565   people
+0.00479   years
+0.00436   education
+0.00396   students
+0.00390   government
+0.00351   time
+0.00341   research
+0.00332   social
+0.00321   school
+0.00316   university
+0.00312   work
+0.00310   world
+0.00295   data
+0.00295   year
+0.00288   science
+0.00281   boston
+0.00243   make
+0.00239   status
+0.00225   iq
+0.00223   life
+--------------------------------------------------
+topic 3: (0.1429)
+0.01758   var
+0.00987   function
+0.00876   code
+0.00675   number
+0.00598   return
+0.00510   data
+0.00509   false
+0.00481   true
+0.00476   object
+0.00475   problem
+0.00429   file
+0.00411   set
+0.00378   time
+0.00368   language
+0.00361   method
+0.00349   objects
+0.00341   git
+0.00339   programming
+0.00337   called
+0.00311   numbers
+--------------------------------------------------
+topic 4: (0.1429)
+0.01223   people
+0.00991   time
+0.00914   work
+0.00836   company
+0.00740   business
+0.00555   things
+0.00543   make
+0.00493   years
+0.00491   money
+0.00475   day
+0.00463   great
+0.00447   good
+0.00443   lot
+0.00441   product
+0.00398   email
+0.00398   customers
+0.00390   facebook
+0.00379   back
+0.00369   thing
+0.00351   working
+--------------------------------------------------
+topic 5: (0.1429)
+0.01477   google
+0.00851   app
+0.00717   people
+0.00613   phone
+0.00565   make
+0.00523   android
+0.00486   time
+0.00484   glass
+0.00448   windows
+0.00427   design
+0.00427   technology
+0.00425   apps
+0.00419   mobile
+0.00406   device
+0.00386   apple
+0.00383   software
+0.00378   work
+0.00362   video
+0.00362   car
+0.00336   devices
+--------------------------------------------------
+topic 6: (0.1429)
+0.00840   data
+0.00639   time
+0.00490   account
+0.00490   system
+0.00470   feedback
+0.00446   site
+0.00428   service
+0.00393   server
+0.00375   ebay
+0.00346   information
+0.00319   good
+0.00299   rate
+0.00296   comment
+0.00291   red
+0.00285   email
+0.00280   security
+0.00279   bitcoin
+0.00266   make
+0.00261   kernel
+0.00244   work

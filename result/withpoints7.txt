@@ -1,0 +1,154 @@
+
+topic 0: (0.0985)
+0.00968   ul
+0.00930   instance
+0.00910   li
+0.00813   code
+0.00738   padding
+0.00734   color
+0.00731   margin
+0.00713   linkedin
+0.00710   function
+0.00636   javascript
+0.00619   left
+0.00587   number
+0.00583   language
+0.00557   html
+0.00542   values
+0.00516   object
+0.00484   css
+0.00460   width
+0.00458   terra
+0.00457   background
+--------------------------------------------------
+topic 1: (0.0827)
+0.02277   glad
+0.02190   people
+0.01818   back
+0.01609   corn
+0.01600   things
+0.01494   depression
+0.01064   good
+0.01061   hope
+0.00926   post
+0.00875   happy
+0.00868   make
+0.00855   feel
+0.00842   allie
+0.00810   love
+0.00759   understand
+0.00661   hard
+0.00625   lot
+0.00625   feeling
+0.00622   read
+0.00611   time
+--------------------------------------------------
+topic 2: (0.1432)
+0.00725   feedback
+0.00707   data
+0.00696   problem
+0.00690   number
+0.00645   people
+0.00634   ebay
+0.00512   years
+0.00507   research
+0.00467   students
+0.00462   conjecture
+0.00399   public
+0.00388   science
+0.00387   problems
+0.00374   work
+0.00349   mathematics
+0.00329   result
+0.00322   paper
+0.00318   percent
+0.00310   time
+0.00309   proof
+--------------------------------------------------
+topic 3: (0.1265)
+0.01115   judge
+0.00795   prenda
+0.00699   wright
+0.00660   irs
+0.00653   case
+0.00635   court
+0.00574   law
+0.00560   make
+0.00509   steele
+0.00427   copyright
+0.00425   order
+0.00406   government
+0.00406   cases
+0.00405   legal
+0.00386   patent
+0.00378   software
+0.00359   people
+0.00352   information
+0.00341   time
+0.00339   money
+--------------------------------------------------
+topic 4: (0.2308)
+0.01051   google
+0.00937   people
+0.00724   time
+0.00600   work
+0.00500   business
+0.00455   make
+0.00435   company
+0.00433   years
+0.00407   year
+0.00387   money
+0.00380   great
+0.00377   email
+0.00375   good
+0.00344   back
+0.00342   lot
+0.00334   voice
+0.00326   day
+0.00311   phone
+0.00293   things
+0.00290   android
+--------------------------------------------------
+topic 5: (0.1597)
+0.00918   people
+0.00707   time
+0.00583   make
+0.00517   fucking
+0.00465   system
+0.00457   good
+0.00453   data
+0.00426   account
+0.00404   code
+0.00359   authority
+0.00354   commit
+0.00354   history
+0.00349   systems
+0.00342   problem
+0.00341   work
+0.00341   life
+0.00337   point
+0.00308   information
+0.00305   key
+0.00293   thing
+--------------------------------------------------
+topic 6: (0.1586)
+0.01440   var
+0.00768   work
+0.00732   people
+0.00718   time
+0.00622   windows
+0.00568   code
+0.00543   web
+0.00528   software
+0.00512   years
+0.00476   linux
+0.00463   microsoft
+0.00413   ms
+0.00405   make
+0.00382   data
+0.00372   server
+0.00365   open
+0.00359   company
+0.00335   long
+0.00314   things
+0.00314   kernel

@@ -37,11 +37,11 @@ namespace plsa
                        const std::vector<double> &pz,
                        std::vector<double> &pz_dw )
     {
-      int p = 0;
       for( int i=0; i<N; i++ ) {
+        int base = i * W * K;
         for ( int j=0; j<W; j++ ) {
           for ( int k=0; k<K; k++ ) {
-            pz_dw[p++] = pw_z[k*W+j] * pd_z[k*N+i] * pz[k];
+            pz_dw[base++] = pw_z[k*W+j] * pd_z[k*N+i] * pz[k];
           }
         }
       }
@@ -51,6 +51,7 @@ namespace plsa
     inline void MStep( int N,
                        int W,
                        int K,
+                       const std::vector<std::vector<std::pair<int,double > > > &X,
                        std::vector<double> &pw_z, 
                        std::vector<double> &pd_z,
                        std::vector<double> &pz,
@@ -70,20 +71,46 @@ namespace plsa
         }
       }
       normalize_at0( pw_z, W );
-      normalize_at0( pd_z, N );
 
-      int p = 0;
       for ( int k=0; k<K; k++ ) {
         for ( int i=0; i<N; i++ ) {
-          pz[k] += pd_z[p++];
+          pz[k] += pd_z[k * N + i];
         }
       }
+      normalize( &pz[0], K );
+
+      normalize_at0( pd_z, N );
     }
-    normalize( pz );
+
+    inline double calc_energy(  int N,
+                                int W,
+                                int K,
+                                const std::vector<std::vector<std::pair<int,double > > > &X,
+                                const std::vector<double> &pw_z, 
+                                const std::vector<double> &pd_z,
+                                const std::vector<double> &pz )
+    {
+      double energy = 0.0;
+      for ( int i=0; i<N; i++ ) {
+        for ( auto& ele : X[i] ) {
+          int j = ele.first;
+          for ( int k=0; k<K; k++ ) {
+            energy += ele.second * pz[k] * pw_z[k * W + j] * pd_z[ k * N + i ];
+          }
+        }
+      }
+      return energy;
+    }
   }
 
-  void train( const std::vector<std::vector<std::pair<int,double> > >& X
-              const std::vector<string> &dict,
+  struct Options
+  {
+    int maxIter;
+    Options() : maxIter(10) {}
+  };
+
+  void train( const std::vector<std::vector<std::pair<int,double> > >& X,
+              const std::vector<std::string> &dict,
               int K,
               std::vector<double> &pw_z, std::vector<double> &pd_z, std::vector<double> &pz,
               Options options )
@@ -91,11 +118,11 @@ namespace plsa
     std::mt19937 rng;
     
     int N = static_cast<int>( X.size() );
-    int W = static_cast<string>( dict.size() );
+    int W = static_cast<int>( dict.size() );
     
     // init pz;
     fullrand( pz, K, rng );
-    normalize( pz );
+    normalize( &pz[0] , K);
 
     // init pw _z
     fullrand( pw_z, K * W, rng );
@@ -106,10 +133,16 @@ namespace plsa
     normalize_at0( pd_z, N );
     
     // init pz_dw
-    std::vecotr<double> pz_dw( N * W * K, 0.0 );
+    std::vector<double> pz_dw( N * W * K, 0.0 );
 
     for ( int iter=0; iter<options.maxIter; iter++ ) {
-      
+      EStep( N, W, K, pw_z, pd_z, pz, pz_dw );
+      MStep( N, W, K, X, pw_z, pd_z, pz, pz_dw );
+      printf( "iter %d: ernergy = %.6lf\n", iter, calc_energy( N, W, K, 
+                                                               X,
+                                                               pw_z,
+                                                               pd_z,
+                                                               pz ) );
     }
   }
               

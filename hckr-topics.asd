@@ -6,6 +6,8 @@
                  #:drakma
                  #:cl-ppcre
                  #:alexandria
+                 #:cl-fad
                  #:closure-html)
     :components ((:file "lisp/packages")
-                 (:file "lisp/scrawler")))
+                 (:file "lisp/scrawler")
+                 (:file "lisp/archive")))

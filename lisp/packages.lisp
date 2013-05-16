@@ -32,4 +32,17 @@
            #:news))
 
 
+(defpackage #:hckr-topics.archive
+  (:nicknames #:archive)
+  (:use #:cl
+        #:ppcre
+        #:cl-fad)
+  (:export #:version
+           #:archive-folder
+           ;; debug
+           #:learn-dict
+           #:*stop-word-file*
+           #:*stop-word-dict*))
+
+
   
